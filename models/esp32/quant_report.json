@@ -1,0 +1,11 @@
+{
+  "samples": 40,
+  "float_accuracy": 1.0,
+  "int8_accuracy": 0.925,
+  "float_int8_agreement": 0.925,
+  "target": "esp32s3",
+  "quant_type": "w8a8",
+  "equalization": true,
+  "input_size": 96,
+  "espdl_kib": 659.9
+}

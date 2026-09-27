@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Datasets (see README - capture your own with training/capture_dataset.py)
+data/
+
+# Training outputs (large); the deployed Pi ONNX model is committed on purpose
+models/**/*.keras
+models/**/*.h5
+models/**/*.tflite
+
+# esp-ppq side outputs
+esp32/quantization/*.info
+esp32/quantization/*.json
+esp32/firmware/main/models/*.info
+esp32/firmware/main/models/*.json
+
+# ESP-IDF
+esp32/firmware/build/
+esp32/firmware/managed_components/
+esp32/firmware/dependencies.lock
+esp32/firmware/sdkconfig
+esp32/firmware/sdkconfig.old
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.omc/

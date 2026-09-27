@@ -1,0 +1,10 @@
+## IDF Component Manager Manifest File
+dependencies:
+  idf: ">=5.3"
+  espressif/esp-dl: "^3.3.0"
+  espressif/esp32-camera: "^2.0.0"
+  # esp-mqtt ships with ESP-IDF 5.x and became a managed component in ESP-IDF 6.
+  espressif/mqtt:
+    version: "*"
+    rules:
+      - if: "idf_version >=6.0"

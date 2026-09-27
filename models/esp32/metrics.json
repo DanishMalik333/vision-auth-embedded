@@ -1,0 +1,9 @@
+{
+  "target": "esp32",
+  "alpha": 0.35,
+  "img_size": 96,
+  "relu6": false,
+  "params": 575079,
+  "test_accuracy": 1.0,
+  "test_loss": 0.018480196595191956
+}

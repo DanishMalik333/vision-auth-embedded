@@ -1,0 +1,66 @@
+menu "Vision Auth Configuration"
+
+    menu "Wi-Fi"
+        config APP_WIFI_SSID
+            string "Wi-Fi SSID"
+            default "your-ssid"
+        config APP_WIFI_PASSWORD
+            string "Wi-Fi password"
+            default "your-password"
+    endmenu
+
+    menu "MQTT"
+        config APP_MQTT_BROKER_URI
+            string "Broker URI"
+            default "mqtt://192.168.1.10:1883"
+        config APP_DEVICE_ID
+            string "Device ID (topic segment and client id)"
+            default "esp32-s3-eye"
+        config APP_TOPIC_PREFIX
+            string "Topic prefix"
+            default "vision-auth"
+            help
+                Predictions go to <prefix>/<device id>/inference,
+                online/offline status to <prefix>/<device id>/status.
+    endmenu
+
+    menu "Inference"
+        choice APP_TRIGGER
+            prompt "Trigger mode"
+            default APP_TRIGGER_CONTINUOUS
+            config APP_TRIGGER_CONTINUOUS
+                bool "Continuous"
+            config APP_TRIGGER_BUTTON
+                bool "Button press (BOOT button)"
+        endchoice
+
+        config APP_BUTTON_GPIO
+            int "Trigger button GPIO"
+            default 0
+            depends on APP_TRIGGER_BUTTON
+            help
+                GPIO0 is the BOOT button on the ESP32-S3-EYE (active low).
+
+        config APP_INFERENCE_INTERVAL_MS
+            int "Delay between inferences in continuous mode (ms)"
+            default 500
+
+        config APP_UNKNOWN_THRESHOLD_PCT
+            int "Confidence below which the label is reported as Unknown (%)"
+            range 0 100
+            default 70
+
+        config APP_ACCEPT_THRESHOLD_PCT
+            int "Confidence at which a prediction is accepted (%)"
+            range 0 100
+            default 90
+
+        config APP_CAMERA_VFLIP
+            bool "Flip camera image vertically"
+            default y
+        config APP_CAMERA_HMIRROR
+            bool "Mirror camera image horizontally"
+            default n
+    endmenu
+
+endmenu

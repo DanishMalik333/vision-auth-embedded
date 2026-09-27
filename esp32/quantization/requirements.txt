@@ -1,0 +1,8 @@
+# Separate environment from training/: esp-ppq pulls in PyTorch.
+# CPU-only torch:  pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+esp-ppq
+torch
+onnx
+onnxruntime
+numpy
+Pillow

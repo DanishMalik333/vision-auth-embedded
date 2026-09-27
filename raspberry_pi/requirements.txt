@@ -1,0 +1,6 @@
+onnxruntime
+opencv-python
+numpy
+paho-mqtt>=2.0
+psutil
+RPi.GPIO; platform_machine == "aarch64" or platform_machine == "armv7l"
