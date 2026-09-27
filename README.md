@@ -159,11 +159,3 @@ Each device gets its own card showing:
 - Online/offline state, driven by retained status messages and the MQTT last will
 
 The payload format is documented in [docs/mqtt.md](docs/mqtt.md).
-
-## Status
-
-- **Raspberry Pi**: the original pipeline was run on a Pi. The refactored client has been checked on a PC with the committed model (101/102 correct on the validation and test splits) and against a local Mosquitto broker.
-- **ESP32-S3-EYE**: the firmware builds cleanly with ESP-IDF 5.4.2, esp-dl 3.3.12 and esp32-camera 2.1.8. The app image is 3.3 MB, leaving 45% of the 6 MB partition free. It has not been run on hardware yet. On first run, check:
-  - that `model->test()` passes in the serial log;
-  - that `quant_report.json` shows int8 accuracy close to float;
-  - the colour order. The camera frame is treated as `RGB565BE`; if predictions look colour-swapped, change it in [app_main.cpp](esp32/firmware/main/app_main.cpp).
